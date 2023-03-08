@@ -12,33 +12,50 @@ export interface Note {
 }
 
 type KeysNote = keyof Note
+
 export interface EditPayload {
     field: KeysNote,
     value: string
     note_id: string
 }
+
 export interface NotesState {
     notes: Array<Note>
+    noteEditIndex: number | null
+    isEditing: boolean
 }
 
 const initialState: NotesState = {
     notes: getFromStorage('notes') || [
         {
             color: "#fff",
-            dateCreated: "sadas", dateUpdated: "2023.03.07", description: "", id: "1", title: "new note"
+            dateCreated: "Wed Mar 08 2023", dateUpdated: "2023.03.07", description: "", id: "1", title: "new note"
         },
 
-    ]
+    ],
+    noteEditIndex: null,
+    isEditing: false
 }
 
 export const NotesSlice = createSlice({
     name: "notes",
     initialState,
     reducers: {
+        setIsEditing: (state, action) => {
+            state.isEditing = action.payload
+        },
+        setNoteEdit: (state, action) => {
+            state.noteEditIndex = state.notes.findIndex(item => item.id === action.payload)
+        },
         addNote: (state, action) => {
             const date = new Date()
             const newNote: Note = {
-                color: action.payload.color, dateCreated: "sas", dateUpdated: getDateString(date), description: "", id: `${Date.now()}`, title: "new"
+                color: action.payload.color,
+                dateCreated: date.toDateString(),
+                dateUpdated: getDateString(date),
+                description: "",
+                id: `${Date.now()}`,
+                title: "new"
 
             }
             state.notes = [...state.notes, newNote]
@@ -65,7 +82,7 @@ export const NotesSlice = createSlice({
     }
 })
 
-export const {addNote, editNote, deleteNote} = NotesSlice.actions
+export const {addNote, editNote, deleteNote, setNoteEdit, setIsEditing} = NotesSlice.actions
 
 
 export const notesReducer = NotesSlice.reducer
