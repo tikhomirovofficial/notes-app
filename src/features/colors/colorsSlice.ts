@@ -35,7 +35,7 @@ const initialState: ColorsState = {
 }
 
 export const ColorsSlice = createSlice({
-    name: "search",
+    name: "colors",
     initialState,
     reducers: {
         selectColor: (state, action) => {

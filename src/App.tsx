@@ -6,7 +6,6 @@ import WorkSpace from "./components/WorkSpace";
 // import 'react-quill/dist/quill.snow.css';
 
 function App() {
-    const dispatch = useAppDispatch()
 
     return (
         <div className="App">
