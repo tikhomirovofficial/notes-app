@@ -1,0 +1,91 @@
+.workspace {
+  flex: 1;
+  padding: 40px 80px;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    padding-bottom: 15px;
+    overflow: hidden;
+    max-width: 400px;
+    position: relative;
+
+    .searchLine {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      height: 1px;
+      background: #979797;
+      transition: .3s transform;
+      transform: translateX(-100%);
+
+    }
+
+    .searchInput {
+      font-weight: 500;
+      font-size: 16px;
+      color: #494949;
+    }
+  }
+
+  .notesBlock {
+    flex: 0.9;
+    flex-direction: column;
+    max-height: 80%;
+    display: flex;
+
+    .notesTitle {
+      font-weight: 600;
+      font-size: 32px;
+      margin-bottom: 32px;
+    }
+
+    .notesList {
+      max-height: 80%;
+      gap: 40px 20px;
+      flex-wrap: wrap;
+      display: flex;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #e3e3e3 transparent;
+      &::-webkit-scrollbar {
+        background: #e3e3e3;
+        width: 3px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #3E3E3E;
+      }
+      .noteWrapper {
+        flex: 1;
+        height: fit-content;
+        width: fit-content;
+      }
+    }
+  }
+
+  .addNoteBtn {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 18px;
+    gap: 5px;
+    align-self: end;
+    cursor: pointer;
+    width: fit-content;
+    border-radius: 50px;
+    border: 2px solid #7E7E7E;
+    font-weight: 500;
+    font-size: 18px;
+    color: #7E7E7E;
+    transition: .3s transform;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}

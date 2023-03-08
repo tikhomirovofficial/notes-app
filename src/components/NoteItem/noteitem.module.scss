@@ -1,0 +1,54 @@
+.noteItem {
+  transition: .3s opacity;
+  height: fit-content;
+  &:hover {
+    opacity: 0.85;
+  }
+  padding: 20px 30px;
+  max-width: 340px;
+  min-width: 340px;
+  border-radius: 20px;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+  .noteHeader {
+    display: flex;
+    justify-content: space-between;
+    .noteHeaderLeft{
+      display: flex;
+      flex-direction: column;
+    }
+    .noteTitle {
+      font-weight: 600;
+      font-size: 21px;
+      line-height: 26px;
+    }
+    .noteCloseBtn {
+      cursor: pointer;
+    }
+    .noteDate {
+      font-weight: 500;
+      font-size: 16px;
+      margin-top: 3px;
+      line-height: 18px;
+      color: #3E3E3E;
+    }
+
+  }
+  .noteBottom {
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: end;
+    .noteEdit {
+      cursor: pointer;
+    }
+    .noteUpdatedDate {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 15px;
+      color: #7E7E7E;
+    }
+
+  }
+}
