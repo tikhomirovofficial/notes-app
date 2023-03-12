@@ -11,6 +11,21 @@
   flex-direction: column;
   display: flex;
   justify-content: space-between;
+  @media (max-width: 1486px) {
+    & {
+      padding: 13px 20px;
+      max-width: 280px;
+      min-width: 280px;
+    }
+
+
+  }
+  @media (max-height: 593px) {
+    & {
+      padding: 8px 20px;
+      gap: 5px;
+    }
+  }
   .noteHeader {
     display: flex;
     justify-content: space-between;
@@ -24,6 +39,12 @@
         background: inherit;
         font-size: 21px;
         line-height: 26px;
+        @media (max-width: 1486px) {
+          & {
+            font-size: 16px;
+          }
+
+        }
       }
     }
 
@@ -37,6 +58,12 @@
       margin-top: 3px;
       line-height: 18px;
       color: #3E3E3E;
+      @media (max-width: 1486px) {
+        & {
+          font-size: 14px;
+        }
+
+      }
     }
 
   }
@@ -53,7 +80,14 @@
       font-size: 14px;
       line-height: 15px;
       color: #7E7E7E;
+      @media (max-width: 1486px) {
+        & {
+          font-size: 12px;
+        }
+
+      }
     }
 
   }
+
 }

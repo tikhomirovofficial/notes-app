@@ -10,6 +10,11 @@
     font-weight: 600;
     font-size: 24px;
     line-height: 37px;
+    @media (max-width: 460px) {
+      & {
+        display: none;
+      }
+    }
   }
   .colors {
     display: flex;
@@ -21,5 +26,34 @@
   .date {
     font-size: 16px;
     color: #979797;
+  }
+  @media (max-width: 930px) {
+    & {
+      padding: 40px;
+    }
+  }
+  @media (max-width: 600px) {
+    & {
+      padding: 20px 40px;
+      flex-direction: row;
+      .date {
+        display: none;
+      }
+
+      .colors {
+        flex-direction: row;
+      }
+    }
+  }
+  @media (max-width: 460px) {
+    & {
+      .colors {
+        justify-content: space-between;
+        width: 100%;
+        flex: unset;
+        align-items: center;
+      }
+
+    }
   }
 }

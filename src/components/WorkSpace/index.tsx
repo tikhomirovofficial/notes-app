@@ -19,7 +19,6 @@ const WorkSpace = () => {
     const {colors, selectedColor} = useAppSelector<ColorsState>(state => state.colors)
 
 
-
     const handleFocusSearch = () => {
         dispatch(handleFocus())
     }
@@ -39,25 +38,30 @@ const WorkSpace = () => {
     return (
         <div className={styles.workspace}>
             <div className={styles.search}>
-                <label htmlFor="search">
+                <label className={styles.searchLabel} htmlFor="search">
                     <SearchIcon/>
                 </label>
 
-                <input id="search" value={filter} onChange={e => handleFilter(e.target)} onFocus={handleFocusSearch} onBlur={handleFocusSearch} placeholder={"Search..."}
+                <input id="search" value={filter} onChange={e => handleFilter(e.target)} onFocus={handleFocusSearch}
+                       onBlur={handleFocusSearch} placeholder={"Search..."}
                        className={styles.searchInput} type="text"/>
                 <div style={isFocus ? {transform: "unset"} : undefined} className={styles.searchLine}></div>
             </div>
             <div className={styles.notesBlock}>
                 <h1 className={styles.notesTitle}>Заметки</h1>
                 {
-                    !notes.length || !notes.filter(note => note.title.includes(filter)).length?  <p className={styles.emptyNotesText}>Добавьте что-нибудь...</p> :
-                        <List listBlockClassname={styles.notesList} list={notes.filter(note => note.title.includes(filter))} renderItem={item => <NoteItem  id={item.id} key={item.id} title={item.title} dateCreated={item.dateCreated}
-                                                                                                                                                            color={item.color} dateUpdated={item.dateUpdated}/>}/>
+                    !notes.length || !notes.filter(note => note.title.includes(filter)).length ?
+                        <p className={styles.emptyNotesText}>Добавьте что-нибудь...</p> :
+                        <List listBlockClassname={styles.notesList}
+                              list={notes.filter(note => note.title.includes(filter))}
+                              renderItem={item => <NoteItem id={item.id} key={item.id} title={item.title}
+                                                            dateCreated={item.dateCreated}
+                                                            color={item.color} dateUpdated={item.dateUpdated}/>}/>
                 }
 
 
             </div>
-            <div onClick={handleCreateNote}  className={styles.addNoteBtn}>
+            <div onClick={handleCreateNote} className={styles.addNoteBtn}>
                 <PlusIcon height={35} width={35}/>
                 Заметка
             </div>

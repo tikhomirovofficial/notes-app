@@ -35,4 +35,14 @@ body {
     height: 95%;
     width: 95%;
     background: white;
+    
+}
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        border-radius: unset;
+        height: 100%;
+        width: 100%;
+    }
 }
